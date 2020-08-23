@@ -1,0 +1,12 @@
+.booking-info-container {
+    width: 85%;
+}
+
+.trash-icon-container {
+    text-align: center;
+}
+
+.card-body-box div, .card-body-box button {
+    height: 40px;
+    line-height: 40px;
+}

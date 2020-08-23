@@ -1,0 +1,93 @@
+<h1 class="page-title">{{ bookTitle_text | translate }}</h1>
+
+<div *ngIf="isLoading" class="loaderContainer">
+    <div class="loader"></div>
+</div>
+<div *ngIf="!isLoading" class="booking-form-container">
+
+    <table>
+        <!-- Date-->
+        <tr>
+            <td class="table-data-left">
+                <span class="text-wrapper">{{ this.onThe_text | translate}}</span>
+            </td>
+            <td class="table-data-right">
+                <p-calendar [(ngModel)]="bookDay" [dateFormat]="dateFormat" [locale]="localeTranslations" [minDate]="minDate" (onSelect)="refresh()"
+                    (onClose)="refresh()"></p-calendar>
+            </td>
+        </tr>
+        <!-- Start time-->
+        <tr>
+            <td class="table-data-left">
+                <span class="text-wrapper">{{ bookFrom_text | translate}}</span>
+            </td>
+            <td class="table-data-right">
+                <p-calendar [(ngModel)]="bookHourStart" [timeOnly]="true" [locale]="localeTranslations" [stepMinute]="30" hourFormat="24"
+                    [minDate]="minDate" (onClose)="refresh()"></p-calendar>
+            </td>
+        </tr>
+        <!-- End time-->
+        <tr>
+            <td class="table-data-left">
+                <span class="text-wrapper">{{ bookTo_text | translate}}</span>
+            </td>
+            <td class="table-data-right">
+                <p-calendar [(ngModel)]="bookHourEnd" [timeOnly]="true" [locale]="localeTranslations" [stepMinute]="30" hourFormat="24" [minDate]="minDate"
+                    (onClose)="refresh()"></p-calendar>
+            </td>
+        </tr>
+        <!-- Room name -->
+        <tr>
+            <td class="table-data-left">
+                <span class="text-wrapper">{{ roomNameInput_text | translate}}</span>
+            </td>
+            <td class="table-data-right">
+                <input class="room-name-input" type="text" size="15" pInputText [(ngModel)]="input_room_Name">
+            </td>
+        </tr>
+        <!-- People amount -->
+        <tr>
+            <td class="table-data-left">
+                <span class="text-wrapper">{{ (peopleAmountInput_text | translate) + ' ' + input_people_amount}}</span>
+            </td>
+            <td class="table-data-right">
+                <p-slider [(ngModel)]="input_people_amount" [min]="1" [max]="30"  [style]="{'width':'160px'}"></p-slider>
+            </td>
+        </tr>
+    </table>
+
+    <div class="separator-ghost"></div>
+
+    <div class="reload-button-container">
+        <button type="button" class="btn btn-success" (click)="refresh()">{{refreshButton_text | translate }}</button>
+    </div>
+
+    <div class="room-card-mini-container">
+        <div *ngIf="rooms.length == 0" class="info-message">
+            {{ noRooms_text | translate}}
+        </div>
+        <div *ngFor="let room of rooms" class="room-card-mini">
+            <div class="card mb-3" style="max-width: 18rem;">
+                <div class="card-header">
+                    <div class="card-float-left">
+                        {{ room.Name }}
+                    </div>
+                    <div class="card-float-right">
+                        <i class="fas fa-user-circle"></i> {{ room.Capacity }}
+                    </div>
+                </div>
+                <div class="card-body card-body-box text-primary">
+                    <div class="card-body-box-text" *ngIf="room.getEquipmentsNames().length == 0">
+                        <div style="color:red;">{{ noEquipment_text | translate }}</div>
+                    </div>
+                    <div class="card-body-box-text" *ngIf="room.getEquipmentsNames().length > 0">
+                        <span *ngFor="let equipment of room.getEquipmentsNames()" class="badge badge-warning">{{ equipment }}</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-light" (click)="bookRoom(room.Name)">{{ bookRoomButton_text | translate }} </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

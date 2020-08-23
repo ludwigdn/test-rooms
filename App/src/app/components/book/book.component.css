@@ -1,0 +1,48 @@
+.datepicker-container, .roomname-container {
+    display: inline-block;  
+    text-align: center;
+    width:100%;
+    padding-bottom: 15px;
+}
+
+.text-wrapper:not(:first-child) {
+    margin-left: 10px;
+}
+.text-wrapper:not(:last-child) {
+    margin-right: 10px;
+}
+
+.room-card-mini {
+    text-align: inherit ! important;
+    display: inline-block;
+    padding: 15px;
+    flex-wrap: wrap;
+    flex: initial; 
+}
+
+.room-card-mini .card{
+    width: 20%;
+    min-width: 220px !important;
+    height: 170px;
+    min-height: 170px !important;
+}
+
+.room-card-mini-container {
+    text-align: center;
+}
+
+.roomname-container {
+    text-align: center;
+    padding-top: 10px;
+}
+
+table {
+    width:100%;
+}
+td {
+    width : 50%;
+}
+
+.room-name-input {
+    text-align: center;
+}

@@ -1,0 +1,130 @@
+nav {
+    padding:0 !important;
+}
+
+.navbar-nav {
+    margin: auto;
+    text-align: center;
+}
+
+#navbarNavAltMarkup a {
+    letter-spacing: .06em;
+    line-height: 18px !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgb(60, 60, 60);
+    font-size: 12px;
+    min-width: 140px;
+    max-width: 140px;
+    padding: 20px;
+    border-bottom: solid transparent 2px;
+}
+
+#navbarNavAltMarkup a:hover {
+    outline: 0;
+}
+
+#navbarNavAltMarkup a:hover:not(.lang-switcher){
+    border-bottom: solid #ff00ae 2px;
+    -webkit-transition: border-bottom 0.15s ease;
+    -moz-transition: border-bottom 0.15s ease;
+    -ms-transition: border-bottom 0.15s ease;
+    transition: border-bottom 0.15s ease;
+}
+
+.navbar-toggler {
+    margin-right: 10px;
+}
+
+.navbar-toggler-icon:hover {
+    color: #ff00ae;
+}
+
+#header-corner-pic-container {    
+    text-align: center;
+    height: 100%;
+    background-color: black;
+    width: 140px;    
+    max-width: 140px;    
+    min-width: 140px;    
+    cursor: pointer;
+}
+
+#header-corner-pic-container:hover {
+    background-color: #ff00ae;
+    -webkit-transition: background-color 0.15s ease;
+    -moz-transition: background-color 0.15s ease;
+    -ms-transition: background-color 0.15s ease;
+    transition: background-color 0.15s ease;
+}
+
+#header-corner-pic {    
+    position: relative;
+    width: 80px;
+    margin: 10px 0;
+}
+
+.main-content {
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.welcome-container, .credits-container {    
+    text-align: center;
+    color: #ffffff;
+    background: url("../../../assets/workplace.png") no-repeat;
+    display: block;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    text-align: center;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.welcome-title, .credits-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.welcome-description, .credits-description {
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+.welcome-title, .credits-title, .welcome-description, .credits-description {
+    text-shadow: rgba(0, 0, 0, 0.2) 0px 1px 9px;
+}
+
+.welcome-book-button, .credits-hire-button {
+    text-transform: uppercase;
+    font-weight:600;
+    padding: 20px;
+    border: none;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-bottom: 80px;
+    border-top: 2px solid #a200ff;
+    border-bottom: 2px solid #2c7bff;
+    background: -webkit-linear-gradient(bottom, #2C7BFF 0%, #A200FF 100%);
+    background: linear-gradient(to top, #2C7BFF 0%, #A200FF 100%);
+    opacity: 0.95;
+    filter: alpha(opacity=95);
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.welcome-book-button:hover, .credits-hire-button:hover {    
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+  }
+    
+.credits-button {
+    opacity: 0.5;
+}

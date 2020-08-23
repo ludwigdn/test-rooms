@@ -1,0 +1,56 @@
+<div id="header">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div id="header-corner-pic-container" (click)="page = 'Index'">
+      <img id="header-corner-pic" src="../../../assets/brand_logo_white.png">
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+          <a class="nav-item nav-link" href="#" (click)="page = 'Rooms'">{{ roomsButton_text | translate }}</a>
+          <a class="nav-item nav-link" href="#" (click)="page = 'Book'">{{ bookButton_text | translate }}</a>
+          <a class="nav-item nav-link" href="#" (click)="page = 'Bookings'">{{ bookingsButton_text | translate }}</a>
+          <a class="nav-item nav-link credits-button" href="#" (click)="page = 'Credits'">{{ creditsButton_text | translate }}</a>                    
+          <a class="nav-item nav-link lang-switcher" *ngIf="language == 'en'" href="#"  (click)="switchLang()"><img src="../../../assets/en.svg"></a>
+          <a class="nav-item nav-link lang-switcher" *ngIf="language == 'fr'" href="#"  (click)="switchLang()"><img src="../../../assets/fr.svg"></a>      
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- Dynamic sub-components -->
+<div class="main-content">
+  
+  <div [ngSwitch]="page">
+
+    <ng-container class="sub-component-container" *ngSwitchCase="'Index'">
+      <div class="welcome-container">
+        <h1 class="welcome-title" style="text-align:center">{{ welcomeTitle_text | translate }}</h1>
+        <div class="welcome-description">{{ welcomeDescription_text | translate }}</div>
+        <a class="btn btn-primary welcome-book-button" (click)="page = 'Book'">{{ bookButton_text | translate }}</a>
+      </div>
+    </ng-container>
+
+    <ng-container class="sub-component-container" *ngSwitchCase="'Rooms'">
+      <app-rooms></app-rooms>
+    </ng-container>
+
+    <ng-container class="sub-component-container" *ngSwitchCase="'Book'">
+      <app-book [lang]="language"></app-book>
+    </ng-container>
+
+    <ng-container class="sub-component-container" *ngSwitchCase="'Bookings'">
+      <app-bookings></app-bookings>
+    </ng-container>
+
+    <ng-container class="sub-component-container" *ngSwitchCase="'Credits'">
+      <div class="credits-container">
+        <h1 class="credits-title" style="text-align:center">{{ thanksTitle_text | translate }}</h1>
+        <div class="credits-description">{{ thanksDescription_text | translate }}</div>
+        <a class="btn btn-primary credits-hire-button" href="mailto:***@***.***"><i class="fas fa-envelope"></i> {{ thanksButton_text | translate }}</a>
+      </div>
+    </ng-container>
+
+  </div>
+</div>

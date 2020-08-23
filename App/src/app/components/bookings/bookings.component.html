@@ -1,0 +1,73 @@
+<h1 class="page-title">{{ bookingsTitle_text | translate }}</h1>
+
+<div *ngIf="isLoading" class="loaderContainer">
+  <div class="loader"></div>
+</div>
+<div *ngIf="!isLoading" class="cards-accordion">
+  <div class="reload-button-container">
+    <button type="button" class="btn btn-success" (click)="refresh()">{{refreshButton_text | translate }}</button>
+  </div>
+  <div *ngIf="bookings.length == 0 && passedBookings.length == 0" class="info-message">
+    {{ noBookings_text | translate}}
+  </div>
+
+  <div *ngIf="bookings.length > 0" class="info-message">
+    {{ ongoingBookings_text | translate}}
+  </div>
+
+  <div *ngFor="let booking of bookings" class="card ongoing-bookings">
+      <div class="card-header">
+        <div class="card-float-left">
+          {{ (bookingsRoomName_text | translate) + ' ' + booking.RoomName }}
+        </div>
+        <div class="card-float-right">
+          <i class="fas fa-user-clock"></i> {{ bookingsBooker_text |translate}}
+          <span class="important-text">{{ booking.Booker }}</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-float-left booking-info-container">
+          <div class="card-body-box">
+            <div class="card-body-box-title">
+              {{ getFormattedDateInformation(booking) }}
+            </div>
+          </div>
+        </div>
+        <div class="card-float-right trash-icon-container">
+          <button type="button" class="btn btn-danger" (click)="deleteBooking(booking.Id)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  <div *ngIf="passedBookings.length > 0" class="info-message text-muted">
+    <div class="separator"></div>
+    {{ passedBookings_text | translate}}
+  </div>
+  <div *ngFor="let booking of passedBookings" class="card passed-bookings text-muted">
+    <div class="card-header">
+      <div class="card-float-left">
+        {{ (bookingsRoomName_text | translate) + ' ' + booking.RoomName }}
+      </div>
+      <div class="card-float-right">
+        <i class="fas fa-user-clock"></i> {{ bookingsBooker_text |translate}}
+        <span class="important-text">{{ booking.Booker }}</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-float-left booking-info-container">
+        <div class="card-body-box">
+            <div class="card-body-box-title">
+              {{ getFormattedDateInformation(booking) }}
+            </div>
+        </div>
+      </div>
+      <div class="card-float-right trash-icon-container">
+        <button type="button" class="btn btn-danger" (click)="deleteBooking(booking.Id)">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+html, body{
+    margin:0 !important;
+    height: 100%;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.ui-inputtext {
+    width: 160px !important;
+    text-align: center !important;
+}
+
+.datepicker-container-time .ui-inputtext {
+    width: 120px !important;
+}
+
+.info-message {
+    text-align: center;
+    font-weight: 600;
+    padding: 20px;
+}
+
+.separator {
+    height: 1px;
+    background-color: black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.separator-ghost {
+    height: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.clearer {
+    clear: both;
+}
+
+.loaderContainer {
+    display: table;
+    margin: 0 auto; 
+}
+
+.btn-light:not(:hover) {
+    border: 1px solid rgb(141, 141, 141);
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.important-text {
+    font-weight: 600;
+}
+
+.page-title {
+    padding-top: 80px;
+    padding-bottom: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-shadow: rgba(0, 0, 0, 0.2) 0px 1px 9px;
+}
+
+.reload-button-container {
+    width : 100%;
+    text-align: center;
+    padding-bottom: 15px;
+}
+.reload-button-container i {
+    margin-left: 10px;
+}
+
+.cards-accordion, .booking-form-container {    
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.card-float-left {
+    float: left;
+    font-weight: bold;
+}
+
+.card-float-right {
+    float: right;
+}
+
+.fa-user-circle {
+    padding: 2px;
+}
+
+.card:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.card-body-box div {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+}
+
+.card-body-box span {
+    padding: 5px 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.card-body-box:not(:last-child) {
+    padding-bottom: 10px;
+}
+
+.card-body-box:not(:first-child) {
+    padding-top: 10px;
+}
+
+.table-data-left {
+    text-align: right;
+    padding-right: 15px;
+}

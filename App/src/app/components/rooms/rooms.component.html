@@ -1,0 +1,41 @@
+<h1 class="page-title">{{ roomsTitle_text | translate }}</h1>
+
+<div *ngIf="isLoading" class="loaderContainer">
+    <div class="loader"></div>
+</div>
+<div *ngIf="!isLoading" class="cards-accordion">
+    <div class="reload-button-container">
+        <button type="button" class="btn btn-success" (click)="refresh()">{{refreshButton_text | translate }}</button>
+    </div>
+  <div *ngFor="let room of rooms" class="card">
+    <div class="card-header">
+      <div class="card-float-left">
+        {{ room.Name }}
+      </div>
+      <div class="card-float-right">
+        <i class="fas fa-user-circle"></i> {{ room.Capacity + ' ' + (roomsPeopleMaximum_text | translate) }}
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-body-box">
+        <div class="card-body-box-title">
+          {{ roomsDescription_text | translate }}
+        </div>
+        <div class="card-body-box-text">
+          {{ room.Description }}
+        </div>
+      </div>
+      <div class="card-body-box">
+        <div class="card-body-box-title">
+          {{ roomsEquipments_text | translate }}
+        </div>
+        <div class="card-body-box-text" *ngIf="room.getEquipmentsNames().length == 0">
+          <i class="fas fa-times-circle" style="color:red;"></i>
+        </div>
+        <div class="card-body-box-text" *ngIf="room.getEquipmentsNames().length > 0">
+          <span *ngFor="let equipment of room.getEquipmentsNames()" class="badge badge-warning">{{ equipment }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
